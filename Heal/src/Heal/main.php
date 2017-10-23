@@ -19,7 +19,7 @@ class main extends PluginBase{
      public function onEnable(){
           $this->getLogger()->info(c::GREEN. "Heal by Karan enabled!");
      }
-     public function onCommand(CommandSender $sender, Command $command, $labels, array $args){
+     public function onCommand(CommandSender $sender, Command $command, $labels, array $args) :bool{
           $cmd = strtolower($command);
           if($cmd == "heal"){  //registers the command
                if($sender->hasPermission("heal.command") && $sender instanceof Player) {
@@ -39,6 +39,7 @@ class main extends PluginBase{
                     }
                }
           }
+          return true;
      }
      public function onDisable(){
           $this->getLogger()->info(c::RED. "Heal by Karan disabled!");
